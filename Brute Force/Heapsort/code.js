@@ -4,7 +4,7 @@ const chart = new ChartTracer();
 const tracer = new Array1DTracer();
 const logger = new LogTracer();
 Layout.setRoot(new VerticalLayout([chart, tracer, logger]));
-const D = new Randomize.Array1D(10).create();
+const D = Randomize.Array1D({ N: 10 });
 tracer.set(D);
 tracer.chart(chart);
 Tracer.delay();
@@ -16,7 +16,7 @@ function heapSort(array, size) {
   let j;
   let temp;
 
-  for (i = Math.ceil(size / 2) - 1; i >= 0; i--) {
+  for (i = Math.floor(size / 2) - 1; i >= 0; i--) {
     heapify(array, size, i);
   }
 
